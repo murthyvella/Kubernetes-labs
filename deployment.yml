@@ -1,1 +1,29 @@
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: nginx-deployment
+  labels:
+    name: nginxapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      name: nginxapp
+  template:
+    metadata:
+      labels:
+        name: nginxapp
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: cm-volume
+          mountPath: /opt
+        ports:
+          - containerPort: 80
+      volumes:
+      - name: cm-volume
+        configMap:
+          name: myconfigmap
