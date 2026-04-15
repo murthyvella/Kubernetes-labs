@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod1
+  namespace: murthy
+  labels:
+    app: myapp
+    tier: frontend
+spec:
+  containers:
+    - name: mycont1
+      image: nginx
+      resources:
+        requests:
+          cpu: "10m"
+          memory: "15Mi"
+        limits:
+          cpu: "20m"
+          memory: "20Mi"
+      ports:
+        - containerPort: 80
