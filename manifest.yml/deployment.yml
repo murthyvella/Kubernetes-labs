@@ -1,0 +1,28 @@
+apiVesrion: v1
+kind: Deployment
+metadata: 
+   name: mydeploy
+spec:
+replicas: 2
+selector:
+   matchLabels:
+         app: prod1
+template:
+  metadta:
+    labels:
+      app: prod1
+  spec:
+    conatainers:
+       - name: mycont1
+         image: appimage
+         ports:
+         - containerPorts: 80
+         resources:
+           requests:
+            cpu: "10mi"
+            memory: "20mi"
+           limits:
+             cpu: "10mi"
+             memory: "30mi"
+        
+             
