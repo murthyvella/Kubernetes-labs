@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Resourcequota
+metadata:
+  name: myrq 
+  namespace: prod
+spec:
+ hard: 
+   request.cpu: "2"
+   limits.cpu: "200mi"
+   request.memory: "2"
+   limits.memory: "500mi"
+   pods: "10"
+   
+   
